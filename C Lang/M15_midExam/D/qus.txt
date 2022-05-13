@@ -1,0 +1,35 @@
+TASK
+---------
+Amr speaks to someone on chat and notices that the first character he writes does not start with a capital letter.
+Help Amr gets the same word with an upper character.
+
+INPUT
+---------
+A single word consists of lowercase and uppercase letters. Note that the length of the word will not exceed 10^3.
+
+OUTPUT
+---------
+Output the same word after capitalizing the first character.
+
+EXAMPLES
+---------
+
+case 1:
+
+    Input
+    --------
+    ApPLe
+
+    Output
+    ---------
+    ApPLe
+
+case 2:
+
+    Input
+    --------
+    konjac
+
+    Output
+    --------
+    Konjac
