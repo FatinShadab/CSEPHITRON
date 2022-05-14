@@ -1,0 +1,60 @@
+PROBLEM
+----------------
+PLUR is a well-known motto at electronic music festivals that stands for "Peace Love Unity Respect". All people who 
+believe in PLUR should wear very colorful kandies to distribute PLUR throughout the festival.
+
+Your friend Santirax is going to EDC for the first time and wants to bring the most colorful kandies from the entire 
+festival, but he have a problem: He only has red, green and blue bead. You as his friend, will help him to create the most colorful kandie as possible.
+
+Santirax will give you N beads in a certain order and asked you not to change that order. You can only remove beads 
+to make a colorful kandie. A kandie is colorful if for any bead, its adjacent beads are of a different color.
+
+Since the kandies go on the wrist of your hand, you want the bracelet to be as long as possible, therefore you will 
+have to remove as few beads as possible to make a colorful kandie.
+
+INPUT
+----------------
+The first line contains integer  — the number of beads on the table.
+The next line contains string , which represents the colors of the beads. We'll consider the beads in the row 
+numbered from  to  from left to right. Then the  character  equals "R", if the  bead is red, "G", if it's green and 
+"B", if it's blue.
+
+OUTPUT
+----------------
+Print a single integer — the minimum number of beads to remove in order to make the kandie colorful.
+
+
+EXAMPLES
+----------------
+case 1:
+
+    Input
+    ---------
+    3
+    RRG
+
+    Output
+    ---------
+    1
+
+case 2:
+
+    Input
+    -----------
+    5
+    RRRRR
+
+    Output
+    -----------
+    4
+
+case 3:
+
+    Input 
+    ------------
+    4
+    BRBG
+
+    Output 
+    -------------
+    0
