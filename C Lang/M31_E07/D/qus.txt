@@ -1,0 +1,33 @@
+Given an array aa of nn elements, print any value that appears at least three times or print -1 if there is no such value.
+
+Input
+
+The first line contains an integer tt (1 \leq t \leq 10^41≤t≤10 
+4
+ ) — the number of test cases.
+
+The first line of each test case contains an integer nn (1 \leq n \leq 2\cdot10^51≤n≤2⋅10 
+5
+ ) — the length of the array.
+
+The second line of each test case contains nn integers a_1, a_2, \dots, a_na 
+1
+​
+ ,a 
+2
+​
+ ,…,a 
+n
+​
+  (1 \leq a_i \leq n1≤a 
+i
+​
+ ≤n) — the elements of the array.
+
+It is guaranteed that the sum of nn over all test cases does not exceed 2\cdot10^52⋅10 
+5
+ .
+
+Output
+
+For each test case, print any value that appears at least three times or print -1 if there is no such value.
