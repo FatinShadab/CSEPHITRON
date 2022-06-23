@@ -1,0 +1,1 @@
+This is test file containing some text to read by read.c file
