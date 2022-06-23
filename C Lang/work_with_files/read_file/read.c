@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int read_a_char(void){
+int read_a_char(char *fname){
     FILE *inputedFile;
 
-    inputedFile = fopen("test_1.txt", "r");
+    inputedFile = fopen(fname, "r");
 
     if (inputedFile == NULL){
         printf("\nFile not found!\n");
@@ -14,8 +14,6 @@ int read_a_char(void){
     // to read a char from the file
     char ch = fgetc(inputedFile);
     printf("The first char in file - %c", ch);
-    char ch1 = fgetc(inputedFile);
-    printf("\nThe second char in file - %c", ch);
 
     fclose(inputedFile);
 
@@ -45,10 +43,10 @@ int read_1st_word(char *fname){
     return 0;
 }
 
-int read_full_file(void){
+int read_full_file(char *fname){
     FILE *inputedFile;
 
-    inputedFile = fopen("test_1.txt", "r");
+    inputedFile = fopen(fname, "r");
 
     if (inputedFile == NULL){
 
@@ -74,20 +72,28 @@ int read_full_file(void){
 
 int main(){
     char fname[1000];
-    scanf("Enter the file path - ");
+    printf("Enter the file path - ");
     gets(fname);
 
-    // to read a char from the file
-    // uncomment line below,
-    ///read_a_char(fname);
+    int op;
+    printf("\nEnter -\n1 (to test read_a_char func)\n2 (to test read_1st_word)\n3 (to test read_full_file)\n- ");
+    scanf("%d", &op);
 
+    if (op == 1){
+    // to read a char from the file
+        read_a_char(fname);
+    }
+    else if(op == 2){
     // to read the first word from the file
-    // uncomment line below,
-    ///read_1st_word(fname);
-    
+        read_1st_word(fname);
+    }
+    else if(op == 3){
     // to read the full file content
-    // uncomment line below,
-    ///read_full_file(fname);
+        read_full_file(fname);       
+    }
+    else{
+        printf("\nInvalid option - %d!", op);
+    }
 
     return 0;
 }
