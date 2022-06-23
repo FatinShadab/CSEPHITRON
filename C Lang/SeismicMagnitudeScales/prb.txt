@@ -1,0 +1,12 @@
+The magnitude of an earthquake is a logarithmic scale of the energy released by the earthquake.
+It is known that each time the magnitude increases by 1, the amount of energy gets multiplied by approximately 32.
+
+Here, we assume that the amount of energy gets multiplied by exactly 32 each time the magnitude increases by 1.
+In this case, how many times is the amount of energy of a magnitude A earthquake as much as that of a magnitude B earthquake?
+__________________________________________
+|      Input         |       Output       |
+|--------------------|--------------------|
+|       6 4          |        1024        |
+|--------------------|--------------------|
+|       5 5          |         1          |
+|--------------------|--------------------|

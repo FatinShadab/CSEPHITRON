@@ -1,0 +1,26 @@
+Sezu was learning numbers and letters. She just learned to write "zero" and "one". One day she wrote some numbers in some cards sequentially where a card contains only one letter. Unfortunately when she was going to her mother to show her, those cards got shuffled. Can you help her mother to find what numbers she wrote on those cards?
+
+Input
+The first line contains a single integer nn (1 \leqslant n \leqslant 10^51⩽n⩽10 
+5
+ ) — the length of the string. The second line contains a string consisting of English lowercase letters: 'z', 'e', 'r', 'o' and 'n'.
+
+It is guaranteed that it is possible to rearrange the letters in such a way that they form a sequence of words, each being either "zero" which corresponds to the digit 00 or "one" which corresponds to the digit 11.
+
+Output
+Print the maximum possible number in binary notation means 1's will be first. Print binary digits separated by a space. The leading zeroes are allowed.
+
+Sample 1
+Inputcopy	Outputcopy
+4
+ezor
+0 
+Sample 2
+Inputcopy	Outputcopy
+10
+nznooeeoer
+1 1 0 
+Note
+In the first example, the correct initial ordering is "zero".
+
+In the second example, the correct initial ordering is "oneonezero".
