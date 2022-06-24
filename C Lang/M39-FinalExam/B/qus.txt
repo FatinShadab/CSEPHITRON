@@ -1,0 +1,29 @@
+Ashiq doesn't love strings. But he really likes letter 'a'. He assumes a string beautiful if more than half of it's character are 'a'. For example some beautiful strings are "baaba", "a", "aqawa" , but "abb", "waeaia" are not.
+As Ashiq only loves beautiful strings, so he wanted to erase some character (possibly zero) from the string s such that the string become longest beautiful string. So he wants to know what will be the size of longest string remaining after erase some character( possibly zero) to get a beautiful string.
+It is guaranteed that the string will consist of atleast one 'a'. So answer always exists.
+
+Input
+==============
+The first line contains a string s ( 1 <= |s| <= 50 ) consist of only lower case English letters. And it is guaranteed that there is at least one 'a' in string s ;
+
+Output
+==============
+Print a single line, the length of the longest beautiful string that Ashiq can get after erasing some character ( possibly zero ) from string s.
+
+Examples
+===============
+
+Input :
+yayayya
+Output :
+5
+
+Input :
+aa
+Output :
+2
+
+Note
+=================
+In the first example we can erase any two 'y' from that string it will be a beautiful string of longest length which is 5.
+In the second example we don't need to erase any character from that string as it is already a beautiful string, so the answer is 2.

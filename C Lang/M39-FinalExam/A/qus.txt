@@ -1,0 +1,15 @@
+Take integer value as input and output that value until you get 42. Input will be less than 100
+
+
+Example
+Input:
+1
+2
+88
+42
+99
+
+Output:
+1
+2
+88
