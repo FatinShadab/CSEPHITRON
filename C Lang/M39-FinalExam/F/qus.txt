@@ -1,0 +1,40 @@
+Square1001 has seen an electric bulletin board displaying the integer 11. He can perform the following operations A and B to change this value:
+
+Operation A: The displayed value is doubled.
+Operation B: The displayed value increases by KK.
+Square1001 needs to perform these operations NN times in total. Find the minimum possible value displayed in the board after NN operations.
+
+Constraints
+1 \leq N, K \leq 101≤N,K≤10
+All input values are integers.
+Input
+Input is given from Standard Input in the following format:
+
+NN
+KK
+Output
+Print the minimum possible value displayed in the board after NN operations.
+
+Sample 1
+Inputcopy	Outputcopy
+4
+3
+10
+The value will be minimized when the operations are performed in the following order: A, A, B, B.
+In this case, the value will change as follows: 11 → 22 → 44 → 77 → 1010.
+
+Sample 2
+Inputcopy	Outputcopy
+10
+10
+76
+The value will be minimized when the operations are performed in the following order: A, A, A, A, B, B, B, B, B, B.
+In this case, the value will change as follows: 11 → 22 → 44 → 88 → 1616 → 2626 → 3636 → 4646 → 5656 → 6666 → 7676.
+
+Sample 3
+Inputcopy	Outputcopy
+10
+2
+20
+The value will be minimized when the operations are performed in the following order: A, A, B, B, B, B, B, B, B, B.
+In this case, the value will change as follows: 11 → 22 → 44 → 66 → 88 → 1010 → 1212 → 1414 → 1616 → 1818 → 2020.
