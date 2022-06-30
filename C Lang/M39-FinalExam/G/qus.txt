@@ -1,0 +1,38 @@
+Problem Statement
+Bitman gifts you some integers LL, RR, and a string SS consisting of lowercase English letters.
+Print this string after reversing (the order of) the LL-th through RR-th characters.
+
+Constraints
+SS consists of lowercase English letters.
+1 \le |S| \le 10^51≤∣S∣≤10 
+5
+  (|S|∣S∣ is the length of SS.)
+LL and RR are integers.
+1 \le L \le R \le |S|1≤L≤R≤∣S∣
+Input
+Input is given from Standard Input in the following format:
+
+LL RR
+SS
+Output
+Print the specified string.
+
+Sample 1
+Inputcopy	Outputcopy
+3 7
+abcdefgh
+abgfedch
+After reversing the 33-rd through 77-th characters of abcdefgh, we have abgfedch.
+
+Sample 2
+Inputcopy	Outputcopy
+1 7
+reviver
+reviver
+The operation may result in the same string as the original.
+
+Sample 3
+Inputcopy	Outputcopy
+4 13
+merrychristmas
+meramtsirhcyrs

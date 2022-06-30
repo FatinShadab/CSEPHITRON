@@ -1,0 +1,101 @@
+There are NN people in Artland .Bitman want to know about their name. But in Artland database there may available duplicate name. The family name and given name of the ii-th person (1 \leq i \leq N)(1≤i≤N) are S_iS 
+i
+​
+  and T_iT 
+i
+​
+ , respectively.
+
+Determine whether there is a pair of people with the same family and given names. In other words, determine whether there is a pair of integers (i,j)(i,j) such that 1 \leq i \lt j \leq N1≤i<j≤N, S_i=S_jS 
+i
+​
+ =S 
+j
+​
+ , and T_i=T_jT 
+i
+​
+ =T 
+j
+​
+ .
+
+Constraints
+2 \leq N \leq 10002≤N≤1000
+NN is an integer.
+Each of S_iS 
+i
+​
+  and T_iT 
+i
+​
+  is a string of length between 11 and 2020 (inclusive) consisting of English lowercase letters.
+Input
+================
+Input is given from Standard Input in the following format:
+
+NN
+S_1S 
+1
+​
+  T_1T 
+1
+​
+ 
+S_2S 
+2
+​
+  T_2T 
+2
+​
+ 
+\hspace{0.6cm}\vdots⋮
+S_NS 
+N
+​
+  T_NT 
+N
+​
+ 
+Output
+===============
+If there is a pair of people with the same family and given names, print Yes; otherwise, print No.
+
+Sample 1
+Input	
+3
+tanaka taro
+sato hanako
+tanaka taro
+
+Output
+Yes
+
+The first and third persons have the same family and given names.
+
+Sample 2
+============
+Input
+
+3
+saito ichiro
+saito jiro
+saito saburo
+
+Output
+No
+
+No two persons have the same family and given names.
+
+Sample 3
+=================
+Input
+
+4
+sypdgidop bkseq
+bajsqz hh
+ozjekw mcybmtt
+qfeysvw dbo
+
+Output
+No
