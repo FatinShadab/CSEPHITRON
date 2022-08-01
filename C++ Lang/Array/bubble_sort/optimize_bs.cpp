@@ -3,19 +3,24 @@
 using namespace std;
 
 void bubble_short_ase(int arr[], int size){
-    for(int i=1; i<size-1; i++){
+    for(int i=1; i<size; i++){
+        int flag = 0;
         cout<< "iteration no : "<< i<< endl;
         for(int j=0; j<size-i; j++){
             if (arr[j]>arr[j+1]){
-                int temp = arr[j+1];
-                arr[j+1] = arr[j];
-                arr[j] = temp;
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+                flag = 1;
             }
             //print the array
             for(int i=0; i<size; i++){
                 cout<<arr[i]<<" ";
             }
             cout<<endl;
+            }
+            if (flag == 0){
+                break;
         }
     }
 
