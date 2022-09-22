@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include "stack_v2.h"
+#include <math.h>
 
 using namespace std;
 
