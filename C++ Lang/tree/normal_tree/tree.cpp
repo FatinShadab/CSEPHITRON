@@ -92,6 +92,39 @@ void postOrderT(treeNode *root, string &rStr){
     rStr += to_string(root->data);
 }
 
+void levelOrderTraversal(treeNode *root, string &rStr){
+    if (root == NULL){
+        return;
+    }
+
+    queue <treeNode*> q;
+
+    q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()){
+        treeNode* chkNode = q.front();
+        q.pop();
+        if(chkNode != NULL){
+            //cout<< chkNode->data << " ";
+            rStr += to_string(chkNode->data);
+
+            if (chkNode->leftChild != NULL){
+                q.push(chkNode->leftChild);
+            }
+
+            if (chkNode->rightChild != NULL){
+                q.push(chkNode->rightChild);
+            }
+        }
+        else{
+            if(!q.empty()){
+                q.push(NULL);
+            }
+        }
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     int n;
@@ -129,9 +162,12 @@ int main(int argc, char const *argv[])
 
     string postOrderTstr = ""; postOrderT(allNodes[0], postOrderTstr);
 
+    string lvlOrderTstr = ""; levelOrderTraversal(allNodes[0], lvlOrderTstr);
+
     cout<<"\nIn Order Tarversal : "<<inOrderTstr<<endl;
     cout<<"\nPre Order Tarversal : "<<preOrderTstr<<endl;
     cout<<"\nPost Order Tarversal : "<<postOrderTstr<<endl;
+    cout<<"\nLevel Order Tarversal : "<<lvlOrderTstr<<endl;
 
     return 0;
 }
