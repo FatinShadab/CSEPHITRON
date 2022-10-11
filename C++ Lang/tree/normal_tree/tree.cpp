@@ -125,9 +125,95 @@ void levelOrderTraversal(treeNode *root, string &rStr){
     }
 }
 
+int maxElementAtKlvl(treeNode *root, int K){
+    int lvl = 0;
+    int max = -999999;
+    queue <treeNode*> q;
+
+    if(root == NULL){
+        return -1;
+    }
+
+    q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()){
+        treeNode * chkNode = q.front();
+        q.pop();
+        
+        if (chkNode != NULL){
+            if (lvl == K){
+                if(chkNode->data > max){
+                    max = chkNode->data;
+                }
+            }
+            if (chkNode->leftChild != NULL){
+                q.push(chkNode->leftChild);
+            }
+            if (chkNode->rightChild != NULL){
+                q.push(chkNode->rightChild);
+            }
+        }
+        else{
+            if(!q.empty()){
+                lvl++;
+                q.push(NULL);
+            }
+        }
+    
+    }
+    
+    cout<<"Exit from while loop with max - "<<max<<endl;
+
+    return max;
+}
+
+int minElementAtKlvl(treeNode *root, int K){
+    int lvl = 0;
+    int min = 1000000000;
+    queue <treeNode*> q;
+
+    if (root == NULL){
+        return -1;
+    }
+
+    q.push(root);
+    q.push(NULL);
+
+    while (!q.empty()){
+        treeNode *chkNode = q.front();
+        q.pop();
+
+        if (chkNode != NULL){
+            if (lvl == K){
+                if (chkNode->data < min){
+                    min = chkNode->data;
+                }
+            }
+
+            if (chkNode->leftChild != NULL){
+                q.push(chkNode->leftChild);
+            }
+
+            if (chkNode->rightChild != NULL){
+                q.push(chkNode->rightChild);
+            }
+        }
+        else{
+            if (!q.empty()){
+                lvl++;
+                q.push(NULL);
+            }
+        }
+    }
+
+    return min;
+}
+
+
 int main(int argc, char const *argv[])
 {
-    int n;
+    int n, K;
     cin >> n;
 
     treeNode *allNodes[n];
@@ -168,6 +254,16 @@ int main(int argc, char const *argv[])
     cout<<"\nPre Order Tarversal : "<<preOrderTstr<<endl;
     cout<<"\nPost Order Tarversal : "<<postOrderTstr<<endl;
     cout<<"\nLevel Order Tarversal : "<<lvlOrderTstr<<endl;
+
+    cout<<"\nEnter the level number to find the max, min element in K level : ";
+    cin>>K;
+
+    int max = maxElementAtKlvl(allNodes[0], K);
+    int min = minElementAtKlvl(allNodes[0], K);
+
+    cout<<"\nThe max element at level - '"<<K<<"' is - "<<max<<endl;
+    cout<<"\nThe min element at level - '"<<K<<"' is - "<<min<<endl;
+
 
     return 0;
 }
