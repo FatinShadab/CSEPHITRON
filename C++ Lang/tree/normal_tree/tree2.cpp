@@ -158,6 +158,39 @@ treeNode * constructTree(int preOarr[], int inOarr[], int start, int end){
     return newNode;
 }
 
+void levelOrderTraversal(treeNode *root){
+    if (root == NULL){
+        return;
+    }
+
+    queue <treeNode*> q;
+
+    q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()){
+        treeNode* chkNode = q.front();
+        q.pop();
+        if(chkNode != NULL){
+            cout<< chkNode->data << " ";
+
+            if (chkNode->leftChild != NULL){
+                q.push(chkNode->leftChild);
+            }
+
+            if (chkNode->rightChild != NULL){
+                q.push(chkNode->rightChild);
+            }
+        }
+        else{
+            if(!q.empty()){
+                q.push(NULL);
+            }
+        }
+    }
+}
+
+
 int main(){
     int n;
     cin>>n;
@@ -181,6 +214,10 @@ int main(){
     cout<<endl<<"Boundary Nodes of the tree - ";
 
     boundaryNodes(root);
+
+    cout<<"\nLevel order traversal - ";
+    
+    levelOrderTraversal(root);
 
     return 0;
 }
