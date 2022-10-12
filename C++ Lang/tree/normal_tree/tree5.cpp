@@ -129,6 +129,48 @@ void average_level(treeNode *root){
 
 }
 
+int second_minimum(treeNode *root){
+    int flag = 1000000000;
+    int secondMin;
+    int min = 1000000000;
+
+    queue <treeNode*> q;
+
+    if (root == NULL){
+        return -1;
+    }
+
+    q.push(root);
+
+    while (!q.empty()){
+        treeNode *chkNode = q.front();
+        q.pop();
+
+        if (chkNode->data < min){
+            secondMin = min;
+            min = chkNode->data;
+        }else{
+            if(secondMin > chkNode->data && chkNode->data != min){
+                secondMin = chkNode->data;
+            }
+        }
+
+        if (chkNode->leftChild != NULL){
+            q.push(chkNode->leftChild);
+        }
+
+        if (chkNode->rightChild != NULL){
+                q.push(chkNode->rightChild);
+            }
+    }
+
+    if (secondMin == flag){
+        return -1;
+    }
+
+    return secondMin;
+}
+
 
 int main(){
     int n = 5;
@@ -140,6 +182,8 @@ int main(){
     printTree(root, 0);
     cout<<endl;
     average_level(root);
+    cout<<endl;
+    cout<<second_minimum(root);
 
     return 0;
 }
