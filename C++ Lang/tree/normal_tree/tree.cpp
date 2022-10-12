@@ -210,6 +210,25 @@ int minElementAtKlvl(treeNode *root, int K){
     return min;
 }
 
+bool is_unival(treeNode* root){
+    bool uni_valued = true;
+
+    if (root == NULL){
+        return uni_valued;
+    }
+
+    if (root->leftChild != NULL && root->data != root->rightChild->data){
+        return false;
+    }
+
+    if (root->rightChild != NULL && root->data != root->rightChild->data){
+        return false;
+    }
+
+    uni_valued = is_unival(root->leftChild) && is_unival(root->rightChild);
+    
+    return uni_valued;
+}
 
 int main(int argc, char const *argv[])
 {
@@ -264,6 +283,11 @@ int main(int argc, char const *argv[])
     cout<<"\nThe max element at level - '"<<K<<"' is - "<<max<<endl;
     cout<<"\nThe min element at level - '"<<K<<"' is - "<<min<<endl;
 
+    if (is_unival(allNodes[0])){
+        cout<<"\nThe tree is uni-valued."<<endl;
+    }else{
+        cout<<"\nThe tree isn't uni-valued."<<endl;
+    }
 
     return 0;
 }
