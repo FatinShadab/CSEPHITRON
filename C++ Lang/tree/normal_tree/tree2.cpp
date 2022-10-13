@@ -8,6 +8,9 @@ Construct a Binary Tree using Preorder and Inorder Traversal
 n - 9
 Enter the elements of preOrderArr - 0 1 3 4 2 5 7 8 6
 Enter the elements of inOrderArr - 3 1 4 0 7 5 8 2 6
+
+Enter the elements of preOrderArr - 3 9 20 15 7
+Enter the elements of inOrderArr - 9 3 15 20 7
 */
 
 #include <bits/stdc++.h>
@@ -190,6 +193,41 @@ void levelOrderTraversal(treeNode *root){
     }
 }
 
+void level_order_reverse(treeNode* root)
+{
+    if (root == NULL) {
+        return;
+    }
+ 
+    queue <treeNode*> q;
+    q.push(root);
+ 
+
+    stack<int> s;
+ 
+    treeNode* curr = NULL;
+ 
+    while (q.size()){
+        curr = q.front();
+        q.pop();
+ 
+        s.push(curr->data);
+ 
+        if (curr->rightChild) {
+            q.push(curr->rightChild);
+        }
+ 
+        if (curr->leftChild) {
+            q.push(curr->leftChild);
+        }
+    }
+ 
+    while (!s.empty())
+    {
+        cout << s.top() << " ";
+        s.pop();
+    }
+}
 
 int main(){
     int n;
@@ -218,6 +256,10 @@ int main(){
     cout<<"\nLevel order traversal - ";
     
     levelOrderTraversal(root);
+
+    cout<<"\nReverse Level order traversal - ";
+
+    level_order_reverse(root);
 
     return 0;
 }
