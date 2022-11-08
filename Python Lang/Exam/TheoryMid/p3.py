@@ -8,7 +8,42 @@ True
 """
 
 def nearly_equal(string_1 : str, string_2 : str) -> bool:
-    pass
+    difference = 0
+
+    if (len(string_1) != len(string_2)):
+        bigger_string = string_1 if len(string_1) > len(string_2) else string_2
+        smaller_string = string_1 if len(string_1) < len(string_2) else string_2
+
+        if (len(bigger_string)-len(smaller_string) > 1):
+            return False
+
+        missing_char = None
+        missing_index = 0
+
+        for idx, char in enumerate(bigger_string):
+            if char not in smaller_string:
+                missing_char = char
+                missing_index = idx
+                break
+
+        alike_str = smaller_string[:missing_index]+missing_char+smaller_string[missing_index:]
+
+        if bigger_string != alike_str:
+            return False
+
+    else:
+        for idx, char in enumerate(string_1):
+            if char != string_2[idx]:
+                difference += 1
+
+        difference = difference // 2
+    
+
+    return difference <= 1
 
 if __name__ == "__main__":
-    pass
+    print(nearly_equal('python', 'perl'))
+    print(nearly_equal('perl', 'pearl'))
+    print(nearly_equal('Hakim', 'aHikm'))
+    print(nearly_equal('HakimL', 'aHikm'))
+    print(nearly_equal('Hakim', 'Haikm'))
