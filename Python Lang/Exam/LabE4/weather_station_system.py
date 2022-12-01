@@ -130,7 +130,7 @@ if __name__ == "__main__":
             weatherStationBD.get_weather_update()
             print()
             for i in range(60):
-                print(f"getting weather update in {i}s", end="\r")
+                print(f"getting weather update in {59-i}s", end="\r")
                 time.sleep(1)
             print(' '*60)
         except KeyboardInterrupt as terminate:
