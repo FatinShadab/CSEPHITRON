@@ -50,7 +50,7 @@ void dfs(int node){
 }
 
 int main(){
-
+    int src;
     int nodes, edges;
     scanf("%d %d", &nodes, &edges);
 
@@ -60,9 +60,11 @@ int main(){
         
         adj_list[u].push_back(v);
         adj_list[v].push_back(u);
-    }
 
-    int src = 0;
+        if (!edge){
+            src = u;
+        }
+    }
 
     cout<<"The Graph : ";
     dfs(src);
