@@ -1,3 +1,8 @@
+/*
+This is a follow up of problem 1. Trim all edges of the input graph where there is an
+edge from u -> v but not v -> u. Output the number of edges you have to
+remove. Use the same code to take input as problem 1.
+*/
 #include <bits/stdc++.h>
 
 using namespace std;

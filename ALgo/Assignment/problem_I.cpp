@@ -1,3 +1,9 @@
+/*
+Write a program that takes a directed graph as input and checks whether it is
+bi-directionoal which means for every pair of nodes where there is an edge u ->
+v, there should also be an edge v -> u.
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
