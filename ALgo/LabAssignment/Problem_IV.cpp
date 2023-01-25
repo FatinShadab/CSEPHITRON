@@ -4,15 +4,7 @@ Now we are interested in detecting cycles in an undirected graph using DFS. A
 cycle in an undirected graph has at least 3 nodes in it. For example, the following
 graph has a cycle consisting nodes 1, 2 & 3.
 
-Input:
-4 4
-1 2
-1 3
-2 3
-3 4
-
-Output:
-Cycle exists.
+problem : https://cses.fi/problemset/task/1669
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -20,6 +12,7 @@ const int N  = 2e5;
 
 vector <int> adj_list[N];
 vector <int> parentNodes[N];
+vector <int> validPath;
 int visited[N];
 
 bool is_parent(int node, int adj_node){
@@ -34,6 +27,7 @@ bool is_parent(int node, int adj_node){
 bool detectCycle(int node){
 
     visited[node] = 1;
+    validPath.push_back(node);
 
     for (int adj_node: adj_list[node]){
         if (!is_parent(node, adj_node)){
@@ -45,6 +39,7 @@ bool detectCycle(int node){
                 }
             }
             else if (visited[adj_node] == 1){
+                validPath.push_back(adj_node);
                 return true;
             }
         }
@@ -70,13 +65,17 @@ int main(){
         if (!visited[i]){
             bool got_cycle = detectCycle(i);
             if (got_cycle){
-                printf("Cycle exists.\n");
+                printf("Number of cities in the round trip : %d\n", validPath.size());
+                puts("The Trip follows :");
+                for (int city : validPath){
+                    printf("%d ", city);
+                }
                 return 0;
             }
         }
     }
 
-    printf("No cycle exists.\n");
+    printf("IMPOSSIBLE\n");
 
     return 0;
 }
