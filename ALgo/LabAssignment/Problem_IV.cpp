@@ -66,7 +66,7 @@ int main(){
             bool got_cycle = detectCycle(i);
             if (got_cycle){
                 printf("Number of cities in the round trip : %d\n", validPath.size());
-                puts("The Trip follows :");
+                puts("The city visit sequence :");
                 for (int city : validPath){
                     printf("%d ", city);
                 }
