@@ -18,7 +18,7 @@
 |  Shortest Path (B to B) : B -> B                       (cost 0)                       | - while !pq.empty():                                             : TC     -> O(E)     |
 |  Shortest Path (B to A) : B -> A                       (cost 4)                       |       - head_distance, head = pq.front()                                              |
 |  Shortest Path (B to C) : B -> C                       (cost 4)                       |       - pq.pop()                                                 : TC     -> O(log E) |
-|  Shortest Path (B to E) : B -> C -> E                  (cost 7)                       |       - if visited[head] == 1 : ignore                                                |
+|  Shortest Path (B to E) : B -> C -> E                  (cost 7)                       |       - if visited[head] == 1 : ignore else make visited[head] = 1                    |
 |  Shortest Path (B to F) : B -> C -> F                  (cost 5)                       |       - for all adj_node of head :                               : TC     -> O(E)     |
 |  Shortest Path (B to D) : B -> C -> F -> D             (cost 8)                       |              - if d[head] + c(head, adj_node) < d[adj_node]:                          |
 |***************************************************************************************|                   - d[adj_node] = d[head] + c(head, adj_node)                         |
