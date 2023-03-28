@@ -3,6 +3,16 @@ using namespace std;
 #define N 100005
 #define INF 10000005
 
+/*
+    input:
+        3 2
+        1 2 -1
+        2 3 -5
+        1
+    output:
+        0 -1 -6
+*/
+
 vector <pair <int, int>> adj_list[N];
 int distanceArr[N];
 
