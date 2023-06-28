@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} NAT LIB - SIGNUP {% endblock %}
+
+{% block body_content %}
+    <form class="py-4 my-4" method="POST" style="width: 50%; margin: auto;" novalidate>
+        {% csrf_token %}
+        <!-- {{form | crispy}} -->
+        {% for ff in form %}
+            {{ ff.label_tag }}
+            {{ ff }}
+            {{ ff.errors | striptags }}
+            <br>
+        {% endfor %}
+        <div class="text-center">
+            <button class="btn btn-outline-secondary mt-3" type="submit">Sign Up</button>
+        </div>
+    </form>
+{% endblock %}

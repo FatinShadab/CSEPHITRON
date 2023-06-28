@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block title %} NAT LIB - {{ user.username }}'s Profile {% endblock %}
+
+{% block body_content %}
+
+<div class="container my-5">
+    <div class="row alert_box">
+        <div class="col-12">
+            {% for notification in notifications %}
+                <div class="alert alert-info d-flex justify-content-between shadow" role="alert">
+                    <p class="mx-3">{{ notification.msg }}</p>
+                    <a href="{% url 'delete_notification' pk=notification.pk %}" class=" btn btn-sm ms-auto fw-bold">X</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row mb-3 border-bottom">
+        <div class="col-12">
+            <div class="profile-info text-center fw-bold">
+                <h2>{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+                <p>Fine: 
+                    {% if fine > 0 %} 
+                        <span class="text-danger">{{ fine }}</span>
+                    {% else %}
+                        <span class="text-secondary">{{ fine }}</span>
+                    {% endif %}
+                    <spanc class="fw-bold" style="font-size: large;">৳</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3 border-bottom">
+        <div class="col-lg-4">
+            <div class="table-container">
+                <h3 class="text-center border-bottom fw-bold pb-3">Borrowed Books</h3>
+                {% if borrowed_books %}
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Return Date</th>
+                                <th scope="col"> -- </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for bb in borrowed_books %}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td><a href="{% url 'book_detail' isbn=bb.book.isbn %}" style="text-decoration: none;">{{ bb.book.title }}</a></td>
+                                    <td>{{ bb.return_date }}</td>
+                                    <th><a href="{% url 'return' isbn=bb.book.isbn %}" class="text-center text-success">return</a></th>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="alert alert-secondary text-center" role="alert">
+                        No borrowed books!
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="table-container">
+                <h3 class="text-center border-bottom fw-bold pb-3">Reservation</h3>
+                {% if reserve_books %}
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Available</th>
+                                <th scope="col"> -- </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for rb in reserve_books %}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td><a href="{% url 'book_detail' isbn=rb.book.isbn %}" style="text-decoration: none;">{{ rb.book.title }}</a></td>
+                                    <td>{{ rb.book.available }}</td>
+                                    <th><a href="{% url 'unresrve' isbn=rb.book.isbn %}" class="text-center text-danger">remove</a></th>
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="alert alert-secondary text-center" role="alert">
+                        No reservations!
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="table-container">
+                <h3 class="text-center border-bottom fw-bold pb-3">Wishlist</h3>
+                {% if wishlist_books %}
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col"> -- </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for book in wishlist_books %}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td><a href="{% url 'book_detail' isbn=book.isbn %}" style="text-decoration: none;">{{ book.title }}</a></td>
+                                    <th><a href="{% url 'remove_from_wishlist' isbn=book.isbn %}" class="text-center text-danger">remove</a></th>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="alert alert-secondary text-center" role="alert">
+                        Wishlist is empty!
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <div class="row mb-2">
+        <div class="col-12 text-center ">
+            <a href="{% url 'catalog' %}" class="btn btn-dark btn-lg" type="button">Explore Books</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

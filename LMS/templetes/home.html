@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %} NAT LIB - HOME {% endblock %}
+
+{% block extra_css%}
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+
+{% endblock %}
+
+{% block body_content %}    
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">NAT LIBRARY</h1>
+        <p class="col-md-8 fs-4">Welcome to Nat Library, your digital oasis of knowledge and imagination. Dive into a world of boundless information and literary treasures, where curiosity meets the digital realm.</p>
+        <a href="{% url 'catalog' %}" class="btn btn-dark btn-lg" type="button">Explore Books</a>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch pb-1 mb-2">
+      <div class="col-md-6 py-1 my-1">
+        <div class="h-100 p-5 text-bg-secondary rounded-3">
+          <h2>SIGNUP</h2>
+          <p>Don't have a account ? The create a account and begin your quest for knowledge. </p>
+          <a href="{% url 'signup' %}" class="btn btn-outline-light fw-bold" type="button">&nbsp signup &nbsp</a>
+        </div>
+      </div>
+      <div class="col-md-6 py-1 my-1">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>LOGIN</h2>
+          <p>Already have a account ? Then Login to deep drive into the oasism of knowledge</p>
+          <a href="{% url 'login' %}" class="btn btn-outline-secondary fw-bold" type="button">&nbsp login &nbsp</a>
+        </div>
+      </div>
+    </div>
+{% endblock %}

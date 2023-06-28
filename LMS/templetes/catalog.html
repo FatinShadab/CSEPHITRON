@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} NAT LIB - CATALOG {% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Styling for input tag */
+    input {
+        padding: 10px;
+        margin-left: 10;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        width: 100%;
+        height: 75%;
+    }
+</style>
+{% endblock %}
+
+{% block body_content %}
+
+    {% if Books|length != 0 %}
+
+        <div class="container-fluid text-end">
+            <form method="get" class="d-flex pb-3" role="search" style="width: 100%; margin: auto;">
+                <div class="d-flex text-center">
+                    {% for ff in filter.form %}
+                        <p class="fw-bold px-1"> {{ ff.label }} </p>
+                        {{ ff }}
+                    {% endfor %}
+                </div>
+                <button class="btn btn-outline-dark mb-3 mx-1" type="submit">Search</button>
+            </form>
+        </div>
+
+
+        <table class="table table-hover" style="min-height: 100%;">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Genre</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for book in Books %}
+                    <tr>
+                        <th scope="row"> {{ forloop.counter }}</th>
+                        <td><a href="{% url 'book_detail' isbn=book.isbn %}" style="text-decoration: none;">{{book.title}}</a></td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.genre}}</td>
+                    </tr>
+                {%  endfor %}
+
+            </tbody>
+        </table>
+    {% else %}
+        <p class="p-5 m-5 text-center fw-bold"> NO BOOKS TO SHOW ☹ </p>
+    {% endif %}
+
+
+
+{% endblock %}

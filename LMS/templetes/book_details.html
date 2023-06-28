@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %} NAT LIB - {{ Book.title }} {% endblock %}
+
+{% block body_content %}
+<div class="container mx-5 px-5">
+
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" class="img-fluid" alt="{{ book.title }}">
+        </div>
+        <div class="col-lg-6 g-1">
+            <h2>{{ Book.title }}</h2>
+            <h5 class="text-muted">{{ Book.author }}</h5>
+            <p class="pt-4"><strong>Genre:</strong> {{ Book.genre }}</p>
+            <p class="pt-1"><strong>ISBN:</strong> {{ Book.isbn }}</p>
+            <p class="pt-1"><strong>Publication Date:</strong> {{ Book.publication_data }}</p>
+            <p class="pt-1"><strong>Availability:</strong> {% if Book.available %}In Stock{% else %}Out of Stock{% endif %}</p>
+            {% if Book.available %}
+                <p class="pt-1"><strong>Stock Quantity:</strong> {{ Book.stock_quantity }}</p>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+
+                <div class="text-center pt-5">
+                    {% if Book.available %}
+                        {% if allow_borrow %}
+                            <a href="{% url 'borrow' isbn=Book.isbn %}" type="button" class="btn btn-outline-secondary me-2">Borrow</a>
+                        {% else %}
+                            <a href="{% url 'return' isbn=Book.isbn %}" type="button" class="btn btn-outline-secondary me-2">Return</a>
+                        {% endif %}
+                    {% else %}
+                        {% if allow_reserve %}
+                            <a href="{% url 'reserve' isbn=Book.isbn %}" type="button" class="btn btn-outline-secondary me-2">Reserve</a>
+                        {% else %}
+                            <a href="{% url 'unresrve' isbn=Book.isbn %}" type="button" class="btn btn-outline-danger me-2">Unreserve</a>
+                        {% endif %}
+                    {% endif %}
+                    {% if allow_wishlist %}
+                        <a href="{% url 'add_to_wishlist' isbn=Book.isbn %}" type="button" class="btn btn-outline-secondary">Add to wishlist</a>
+                    {% else %}
+                        <a href="{% url 'remove_from_wishlist' isbn=Book.isbn %}" type="button" class="btn btn-outline-danger">Remove from wishlist</a>
+                    {% endif %}
+                </div>
+
+            {% else %}
+
+
+                <div class="text-center fw-bold alert alert-secondary mt-5" role="alert">
+                    Please Login or Signup to continue !
+                </div>
+
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

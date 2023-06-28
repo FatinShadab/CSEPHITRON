@@ -2,3 +2,7 @@
 *.out
 .vscode/
 labEnv/
+__pycache__/
+migrations/
+env/
+*.sqlite3
